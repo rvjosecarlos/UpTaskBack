@@ -7,9 +7,11 @@ const corsOptions: CorsOptions = {
         console.log('Intento de conexion desde ' + origin);
         const argumentosNode = process.argv;
         if( whiteList.includes(origin) || argumentosNode[2] === undefined ){
+            console.log('Entra en la lista blanca', whiteList);
             callback(null, true);
         }
         else{
+            console.log('No se permite la entrada', whiteList);
             console.log(colors.red.bold('Error de CORS ' + origin));
             callback(new Error('Error de CORS'));
         }
