@@ -3,10 +3,9 @@ import colors from "colors";
 
 const corsOptions: CorsOptions = {
     origin: (origin, callback) => {
-        const whiteList = [process.env.FRONTEND_URL, 'http://localhost:5173'];
-        console.log('Intento de conexion desde ' + origin);
+        const whiteList = [process.env.FRONTEND_URL];
         const argumentosNode = process.argv;
-        if( whiteList.includes(origin) || argumentosNode[2] === undefined ){
+        if( whiteList.includes(origin)){
             console.log('Entra en la lista blanca', whiteList);
             callback(null, true);
         }
