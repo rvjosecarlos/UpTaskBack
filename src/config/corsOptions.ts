@@ -4,6 +4,7 @@ import colors from "colors";
 const corsOptions: CorsOptions = {
     origin: (origin, callback) => {
         const whiteList = [process.env.FRONTEND_URL];
+        console.log('Intento de conexion desde ' + origin);
         const argumentosNode = process.argv;
         if( whiteList.includes(origin) || argumentosNode[2] === undefined ){
             callback(null, true);
